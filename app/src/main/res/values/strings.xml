@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Dictionary</string>
+    <string name="search_hint">Search</string>
+
+    <string name="action_delete">Delete</string>
+    <string name="action_search">Search</string>
+
+    <string name="you_have_no_words_yet">You have no words yet</string>
+    <string name="no_results">No results</string>
+    <string name="retry">Retry</string>
+    <string name="error_header">Error</string>
+    <string name="database_connection_error">Can\'t connect to database</string>
+    <string name="delete_word_message">Are you sure you want to delete this word?</string>
+    <string name="delete_word_header">Delete word</string>
+    <string name="no_translation">No translation</string>
+    <string name="word_not_found">Word not found</string>
+    <string name="you_already_added_this_word">You already added this word</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="translating">Translating…</string>
+    <string name="type_word">Type a word</string>
+
+    <string name="fragment_words_title">Words</string>
+
+    <string name="word_placeholder">Word</string>
+    <string name="translations_placeholder">Translations</string>
+</resources>

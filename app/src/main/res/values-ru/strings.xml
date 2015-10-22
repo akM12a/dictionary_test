@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Словарь</string>
+    <string name="search_hint">Поиск</string>
+
+    <string name="action_delete">Удалить</string>
+    <string name="action_search">Поиск</string>
+
+    <string name="you_have_no_words_yet">У вас нет ни одного слова</string>
+    <string name="no_results">Ничего не найдено</string>
+    <string name="retry">Повторить</string>
+    <string name="error_header">Ошибка</string>
+    <string name="database_connection_error">Ошибка при подключении к базе данных</string>
+    <string name="delete_word_message">Вы действительно хотите удалить слово?</string>
+    <string name="delete_word_header">Удалить слово</string>
+    <string name="no_translation">Нет перевода</string>
+    <string name="word_not_found">Слово не найдено</string>
+    <string name="you_already_added_this_word">Вы уже добавили это слово</string>
+    <string name="unknown_error">Неизвестная ошибка</string>
+
+    <string name="fragment_words_title">Слова</string>
+
+    <string name="word_placeholder">Слово</string>
+    <string name="translations_placeholder">Перевод</string>
+</resources>
