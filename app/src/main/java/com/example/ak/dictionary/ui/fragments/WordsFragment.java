@@ -111,7 +111,9 @@ public class WordsFragment extends BaseAppFragment {
                     mNavigationListener.navigateWordDetails(word.getWord());
                 }
             });
+            updateData();
         }
+        updateNoWordsMessage();
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -128,25 +130,21 @@ public class WordsFragment extends BaseAppFragment {
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
-                updateData(null);
+                updateData();
                 return true;
             }
         });
 
         mSearchView = (SearchView) searchMenuItem.getActionView();
         mSearchView.setQueryHint(getString(R.string.search_hint));
-        setSearchViewTextChangeListener();
 
-        updateNoWordsMessage();
         if (mFilterText != null) {
             String query = mFilterText;
             searchMenuItem.expandActionView();
             mSearchView.setQuery(query, true);
             mSearchView.clearFocus();
         }
-        else {
-            updateData();
-        }
+        setSearchViewTextChangeListener();
     }
 
     @Override
@@ -216,7 +214,7 @@ public class WordsFragment extends BaseAppFragment {
                 }, new CompleteListener<Void>() {
                     @Override
                     public void onComplete(Void result) {
-                        updateData(mFilterText);
+                        mAdapter.notifyDataSetChanged();
                     }
                 }, null);
             }
