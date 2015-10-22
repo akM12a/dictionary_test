@@ -1,5 +1,6 @@
 package com.example.ak.dictionary.network.api;
 
+import com.example.ak.dictionary.network.api.data.DictionaryResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -48,6 +49,7 @@ public class WebClient {
 
     private static Gson getResponseConverter() {
         return new GsonBuilder()
+                .registerTypeAdapter(DictionaryResponse.class, new DictionaryResponseDeserializer())
                 .create();
     }
 

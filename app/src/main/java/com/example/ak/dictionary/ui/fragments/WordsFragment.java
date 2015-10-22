@@ -23,13 +23,10 @@ import com.example.ak.dictionary.R;
 import com.example.ak.dictionary.db.WordsStore;
 import com.example.ak.dictionary.db.model.Word;
 import com.example.ak.dictionary.network.api.WebClient;
-import com.example.ak.dictionary.network.api.data.DictionaryPart;
 import com.example.ak.dictionary.network.api.data.DictionaryResponse;
-import com.example.ak.dictionary.network.api.data.DictionaryVariant;
 import com.example.ak.dictionary.ui.BaseAppFragment;
 import com.example.ak.dictionary.ui.adapters.WordsListAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -206,21 +203,14 @@ public class WordsFragment extends BaseAppFragment {
                 executeDatabaseQuery(new WordsStoreQuery<Void>() {
                     @Override
                     public Void query(WordsStore wordsStore) throws Exception {
-                        List<String> translation = new ArrayList<>();
-                        for (DictionaryPart part : result.parts) {
-                            for (DictionaryVariant variant : part.variants) {
-                                translation.add(variant.text);
-                            }
-                        }
-                        if (translation.isEmpty()) {
+                        if (result.variants.isEmpty()) {
                             throw new Exception(getString(R.string.word_not_found));
                         }
-
                         if (wordsStore.getWord(word) != null) {
                             throw new Exception(getString(R.string.you_already_added_this_word));
                         }
 
-                        wordsStore.addWord(word, translation);
+                        wordsStore.addWord(word, result.variants);
                         return null;
                     }
                 }, new CompleteListener<Void>() {
